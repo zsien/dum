@@ -1,0 +1,8 @@
+[Unit]
+Description=deepin Immutable Upgrade
+
+[Service]
+Type=oneshot
+ExecStart=deepin-immutable-ctl ota upgrade --version=%i
+StandardOutput=fd:dum-upgrade-stdout
+StandardError=fd:dum-upgrade-stdout

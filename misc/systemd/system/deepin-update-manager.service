@@ -1,0 +1,7 @@
+[Unit]
+Description=deepin Update Manager
+
+[Service]
+Type=simple
+User=deepin-update-manager
+ExecStart=/usr/libexec/deepin-update-manager
