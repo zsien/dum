@@ -10,6 +10,8 @@ Build-Depends:
  systemd-dev,
  libuv1-dev,
  libspdlog-dev,
+ libexpected-dev,
+ libfmt-dev,
 Standards-Version: 4.7.0
 Homepage: <insert the upstream URL, if relevant>
 #Vcs-Browser: https://salsa.debian.org/debian/deepin-update-manager
