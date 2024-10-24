@@ -2,6 +2,10 @@
 Description=deepin Update Manager
 
 [Service]
-Type=simple
+Type=dbus
+BusName=org.deepin.UpdateManager1
 User=deepin-update-manager
+Sockets=dum-upgrade-stdout.socket
+FileDescriptorStoreMax=1024
+FileDescriptorStorePreserve=yes
 ExecStart=/usr/libexec/deepin-update-manager

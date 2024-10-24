@@ -2,16 +2,18 @@ set(BIN_NAME deepin-update-manager)
 
 add_executable(${BIN_NAME}
     main.cpp
-    dbusx/bus.cpp
+    example.h
+    example.cpp
     dbusx/bus.h
-    dbusx/bus_private.cpp
+    dbusx/bus.cpp
     dbusx/bus_private.h
+    dbusx/bus_private.cpp
     dbusx/error.h
     dbusx/interface.h
-    dbusx/message.cpp
     dbusx/message.h
-    dbusx/message_private.cpp
+    dbusx/message.cpp
     dbusx/message_private.h
+    dbusx/message_private.cpp
     dbusx/method.h
     dbusx/property.h
     dbusx/signal.h
@@ -24,11 +26,12 @@ add_executable(${BIN_NAME}
 target_link_libraries(${BIN_NAME} PRIVATE
     PkgConfig::libsystemd
     PkgConfig::libuv
-    spdlog
+    PkgConfig::fmt
+    PkgConfig::spdlog
     uvw::uvw
 )
 
 install(
     TARGETS ${BIN_NAME}
-    RUNTIME DESTINATION ${CMAKE_INSTALL_LIBEXECDIR}/dde-dialog
+    RUNTIME DESTINATION ${CMAKE_INSTALL_LIBEXECDIR}
 )

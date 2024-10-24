@@ -4,5 +4,6 @@ Description=DUM upgrade stdout
 [Socket]
 Service=deepin-update-manager.service
 ListenStream=/run/dum/upgrade-stdout
-FileDescriptorName=upgrade-stdout
+ReceiveBuffer=8M
+FileDescriptorName=dum-upgrade-stdout
 RemoveOnStop=true
