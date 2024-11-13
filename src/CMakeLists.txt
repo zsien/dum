@@ -1,34 +1,26 @@
 set(BIN_NAME deepin-update-manager)
 
-add_executable(${BIN_NAME}
+set(DUM_SOURCES
     main.cpp
-    example.h
-    example.cpp
-    dbusx/bus.h
-    dbusx/bus.cpp
-    dbusx/bus_private.h
-    dbusx/bus_private.cpp
-    dbusx/error.h
-    dbusx/interface.h
-    dbusx/message.h
-    dbusx/message.cpp
-    dbusx/message_private.h
-    dbusx/message_private.cpp
-    dbusx/method.h
-    dbusx/property.h
-    dbusx/signal.h
-    dbusx/typedef.h
-    dbusx/type.h
-    dbusx/utils.h
-    dbusx/vtable.h
+    ManagerAdaptor.h
+    ManagerAdaptor.cpp
+    Report.h
+    Report.cpp
+)
+
+qt_add_dbus_interface(DUM_SOURCES org.freedesktop.systemd1.Manager.xml SystemdManagerInterface)
+qt_add_dbus_interface(DUM_SOURCES org.freedesktop.systemd1.Unit.xml SystemdUnitInterface)
+
+add_executable(${BIN_NAME}
+    ${DUM_SOURCES}
 )
 
 target_link_libraries(${BIN_NAME} PRIVATE
     PkgConfig::libsystemd
-    PkgConfig::libuv
-    PkgConfig::fmt
-    PkgConfig::spdlog
-    uvw::uvw
+    PkgConfig::openssl
+    Qt6::Core
+    Qt6::DBus
+    Qt6::Network
 )
 
 install(

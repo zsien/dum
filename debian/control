@@ -4,14 +4,14 @@ Priority: optional
 Maintainer: zsien <quezhiyong@deepin.org>
 Rules-Requires-Root: no
 Build-Depends:
- debhelper-compat (= 13),
  cmake,
- libsystemd-dev,
- systemd-dev,
- libuv1-dev,
- libspdlog-dev,
+ debhelper-compat (= 13),
  libexpected-dev,
  libfmt-dev,
+ libspdlog-dev,
+ libsystemd-dev,
+ libuv1-dev,
+ systemd-dev,
 Standards-Version: 4.7.0
 Homepage: <insert the upstream URL, if relevant>
 #Vcs-Browser: https://salsa.debian.org/debian/deepin-update-manager
@@ -20,7 +20,7 @@ Homepage: <insert the upstream URL, if relevant>
 Package: deepin-update-manager
 Architecture: any
 Depends:
- ${shlibs:Depends},
  ${misc:Depends},
+ ${shlibs:Depends},
 Description: <insert up to 60 chars description>
  <Insert long description, indented with spaces.>
